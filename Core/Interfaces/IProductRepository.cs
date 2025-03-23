@@ -1,0 +1,19 @@
+using System;
+using Core.Entities;
+
+namespace Core.Interfaces;
+
+public interface IProductRepository
+{
+    Task<IReadOnlyList<Product>> GetProductsAsync(string? brands, string? type, string? sort);
+    Task<Product?> GetProductbyIdAsync(int id);
+
+    Task<IReadOnlyList<string>> GetBrandsAsync();
+
+    Task<IReadOnlyList<string>> GetTypeAsync();
+    void AddProduct(Product product);
+    void UpdateProduct(Product product);
+    void DeleteProduct(Product product);
+    bool ProductExists(int id);
+    Task<bool> SaveChangesAsync();
+}
